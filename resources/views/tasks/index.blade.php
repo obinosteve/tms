@@ -41,7 +41,7 @@
                                 <th>Assigned To</th>
                                 <th>Title</th>
                                 <th>Due Date</th>
-                                <th>Status</th>
+                                <th class="text-center">Status</th>
                                 <th>Completed At</th>
                                 <th class="text-center">Action</th>
                             </tr>
@@ -52,7 +52,7 @@
                                 <th>Assigned To</th>
                                 <th>Title</th>
                                 <th>Due Date</th>
-                                <th>Status</th>
+                                <th class="text-center">Status</th>
                                 <th>Completed At</th>
                                 <th class="text-center">Action</th>
                             </tr>
@@ -60,13 +60,13 @@
                         <tbody>
                             @foreach ($tasks as $index => $task)
                                 <tr>
-                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ $index + 1 }}.</td>
                                     <td>{{ ucwords($task->assignedTo()) }}</td>
                                     <td>{{ $task->title }}</td>
                                     <td>
                                         <strong>{{ $task->getDueDate() }}</strong>
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         <span class="badge bg-{{ $task->isCompleted() ? 'success' : 'warning' }}">
                                             {{ ucfirst($task->status) }}
                                         </span>

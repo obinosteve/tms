@@ -21,6 +21,7 @@ class ListTasksAction
                 $dueDate = GetDueDate($dueDate),
                 fn($builder) => $builder->whereDate('due_date', $dueDate)
             )
+            ->latest()
             ->paginate(25);
     }
 }
