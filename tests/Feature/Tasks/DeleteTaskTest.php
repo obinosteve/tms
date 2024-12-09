@@ -19,9 +19,9 @@ it('prevents a user from deleting another user\'s task', function () {
 
 it('prevents unauthenticated users from deleting a task', function () {
     $user = User::factory()->create();
-    $task = Task::factory()->create();
+    $task = Task::factory()->create(['user_id' => $user->id]);
 
-    $response = $this->from(route('tasks.index'))->delete(route('tasks.destroy', $task->id));
+    $response = $this->from(route('tasks.index'))->delete(route('tasks.destroy', $task));
 
     $response->assertRedirect(route('login'));
 

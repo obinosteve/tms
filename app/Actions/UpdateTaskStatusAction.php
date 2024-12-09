@@ -12,7 +12,7 @@ class UpdateTaskStatusAction
     public static function execute(string $status, Task $task): Task
     {
         throw_if(
-            !$task,
+            !$task instanceof Task,
             new ModelNotFoundException('Task not found', Response::HTTP_NOT_FOUND)
         );
 

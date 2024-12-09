@@ -9,8 +9,6 @@ class CreateTaskAction
 {
     public static function execute(TaskData $taskData): Task
     {
-        $task = UpsertTaskAction::execute(new Task, $taskData);
-
-        return $task;
+        return UpsertTaskAction::execute(new Task, $taskData);
     }
 }

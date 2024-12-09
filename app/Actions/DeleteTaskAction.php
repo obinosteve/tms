@@ -11,7 +11,7 @@ class DeleteTaskAction
     public static function execute(Task $task): void
     {
         throw_if(
-            !$task,
+            !$task instanceof Task,
             new ModelNotFoundException('Task not found', Response::HTTP_NOT_FOUND)
         );
 

@@ -12,10 +12,11 @@ class UpdateTaskAction
     public static function execute(TaskData $taskData, Task $task): Task
     {
         throw_if(
-            !$task,
+            !$task instanceof Task,
             new ModelNotFoundException('Task not found', Response::HTTP_NOT_FOUND)
         );
 
+        // Update the task
         $task = UpsertTaskAction::execute($task, $taskData);
 
         return $task;
